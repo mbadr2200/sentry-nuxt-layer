@@ -21,3 +21,9 @@ export default defineAppConfig({
 })
 ```
 4- add `sentryOrg` & `sentryProject` in your `.env` file 
+
+5- use the composable as here
+```
+	const {captureSentryError} = useSentry();
+    captureSentryError(error);
+```
