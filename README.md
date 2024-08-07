@@ -8,8 +8,7 @@ build:{
 		transpile:['sentry-nuxt-layer']
 	}
 ```
-2- add `.env.sentry-build-plugin` with your `SENTRY_AUTH_TOKEN`
-3- add `app.config.ts` with this configuration 
+2- add `app.config.ts` with this configuration 
 ```
 export default defineAppConfig({
     sentryNuxt:{
@@ -20,9 +19,9 @@ export default defineAppConfig({
     }
 })
 ```
-4- add `sentryOrg` & `sentryProject` in your `.env` file 
+3- add `sentryOrg` & `sentryProject` & `SENTRY_AUTH_TOKEN` in your `.env` file 
 
-5- use the composable as here
+4- use the composable as here
 ```
 	const {captureSentryError} = useSentry();
     captureSentryError(error);
