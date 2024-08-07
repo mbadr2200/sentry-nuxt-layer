@@ -20,3 +20,4 @@ export default defineAppConfig({
     }
 })
 ```
+4- add `sentryOrg` & `sentryProject` in your `.env` file 

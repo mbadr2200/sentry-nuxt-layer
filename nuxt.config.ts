@@ -10,8 +10,8 @@ export default defineNuxtConfig({
 		},
 
 		plugins: [sentryVitePlugin({
-			// org: appConfig.sentryNuxt.org,
-			// project: appConfig.sentryNuxt.projectId
+			org: process.env.sentryOrg,
+			project: process.env.sentryProject
 		})]
 	},
 
