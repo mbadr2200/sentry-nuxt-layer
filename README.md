@@ -1,73 +1,22 @@
-# Nuxt Layer Starter
-
-Create Nuxt extendable layer with this GitHub template.
-
-## Setup
-
-Make sure to install the dependencies:
-
-```bash
-pnpm install
+### How to use 
+1- add to your nuxt.config.ts
 ```
-
-## Working on your layer
-
-Your layer is at the root of this repository, it is exactly like a regular Nuxt project, except you can publish it on NPM.
-
-The `.playground` directory should help you on trying your layer during development.
-
-Running `pnpm dev` will prepare and boot `.playground` directory, which imports your layer itself.
-
-## Distributing your layer
-
-Your Nuxt layer is shaped exactly the same as any other Nuxt project, except you can publish it on NPM.
-
-To do so, you only have to check if `files` in `package.json` are valid, then run:
-
-```bash
-npm publish --access public
+extends:[
+		['github:mbadr2200/sentry-nuxt-layer',{install:true}]
+	],
+build:{
+		transpile:['sentry-nuxt-layer']
+	}
 ```
-
-Once done, your users will only have to run:
-
-```bash
-npm install --save your-layer
+2- add `.env.sentry-build-plugin` with your `SENTRY_AUTH_TOKEN`
+3- add `app.config.ts` with this configuration 
 ```
-
-Then add the dependency to their `extends` in `nuxt.config`:
-
-```ts
-defineNuxtConfig({
-  extends: 'your-layer'
+export default defineAppConfig({
+    sentryNuxt:{
+        dsn: {your dsn from sentry},
+        targetUrls: ["localhost",{your_production_url}],
+        project: {your project name on sentry},
+        org: {your org name on sentry},
+    }
 })
 ```
-
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-pnpm dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-pnpm build
-```
-
-Or statically generate it with:
-
-```bash
-pnpm generate
-```
-
-Locally preview production build:
-
-```bash
-pnpm preview
-```
-
-Checkout the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
