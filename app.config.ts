@@ -4,6 +4,7 @@ export default defineAppConfig({
     targetUrls: ["localhost"],
     project: "",
     org: "",
+    normalizeDepth:10
   }
 })
 
@@ -13,7 +14,8 @@ declare module '@nuxt/schema' {
       dsn: string,
       targetUrls: string[],
       project: string,
-      org: string
+      org: string,
+      normalizeDepth?:number
     }
   }
 }
