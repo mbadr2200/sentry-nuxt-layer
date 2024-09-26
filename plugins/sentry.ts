@@ -2,10 +2,11 @@ import * as Sentry from "@sentry/vue";
 
 export default defineNuxtPlugin(({vueApp}) =>{
     const appConfig = useAppConfig();
+    const runtimeConfig = useRuntimeConfig();
     Sentry.init({
         app:vueApp,
         dsn: appConfig.sentryNuxt.dsn,
-        environment:process.env.SENTRY_ENVIRONMENT,
+        environment:runtimeConfig.public.sentryEnv,
         integrations: [
           Sentry.browserTracingIntegration(),
           Sentry.replayIntegration(),
