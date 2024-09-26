@@ -4,7 +4,6 @@ export default defineNuxtPlugin(({vueApp}) =>{
     const appConfig = useAppConfig();
     Sentry.init({
         app:vueApp,
-        environment:appConfig.environment,
         dsn: appConfig.sentryNuxt.dsn,
         integrations: [
           Sentry.browserTracingIntegration(),
@@ -19,6 +18,6 @@ export default defineNuxtPlugin(({vueApp}) =>{
         replaysOnErrorSampleRate: 1.0, // If you're not already sampling the entire session, change the sample rate to 100% when sampling sessions where errors occur.
         logErrors: true,
         normalizeDepth:appConfig.normalizeDepth || 10,
-
+        
       });
 })
