@@ -5,6 +5,7 @@ export default defineNuxtPlugin(({vueApp}) =>{
     Sentry.init({
         app:vueApp,
         dsn: appConfig.sentryNuxt.dsn,
+        environment:"development",
         integrations: [
           Sentry.browserTracingIntegration(),
           Sentry.replayIntegration(),
