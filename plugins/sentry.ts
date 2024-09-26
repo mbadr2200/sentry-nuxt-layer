@@ -4,7 +4,7 @@ export default defineNuxtPlugin(({vueApp}) =>{
     const appConfig = useAppConfig();
     Sentry.init({
         app:vueApp,
-        environment:appConfig.environment
+        environment:appConfig.environment,
         dsn: appConfig.sentryNuxt.dsn,
         integrations: [
           Sentry.browserTracingIntegration(),
