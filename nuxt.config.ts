@@ -11,12 +11,7 @@ export default defineNuxtConfig({
 
 		plugins: [sentryVitePlugin({
 			org: process.env.sentryOrg,
-			project: process.env.sentryProject,
-			release:{
-				deploy:{
-					env:process.env.environment
-				}
-			}
+			project: process.env.sentryProject
 		})]
 	},
 
